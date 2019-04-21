@@ -12,7 +12,7 @@ from keras_tqdm import TQDMNotebookCallback
 #Loading the hotdog dataset
 batch_size = 10
 epochs = 3
-# Re-scaled dimensions of our images.
+# Re-scaled dimensions of images
 img_width, img_height = 150, 150
 
 if K.image_data_format() == 'channels_first':
@@ -25,29 +25,8 @@ mobilenet_base = MobileNet(weights='imagenet', include_top=False)
 
 def mymodel():
     
-    #Simple model from: https://gist.github.com/fchollet/0830affa1f7f19fd47b06d4cf89ed44d
-    
-    model = Sequential()
-    model.add(Conv2D(32, (2, 2), input_shape=input_shape,strides=1,padding='valid'))
-    model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    
-    model.add(Conv2D(32, (2, 2),strides=1,padding='valid'))
-    model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    
-    model.add(Conv2D(64, (2, 2),strides=2,padding='valid'))
-    model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(GlobalAveragePooling2D(input_shape=input_shape))
-    model.add(Dense(64, activation='relu'))
-    model.add(Dense(1, activation='softmax'))
-    model.compile(loss='binary_crossentropy',
-              optimizer='rmsprop',
-              metrics=['accuracy'])
-
-  '''
-    
+    #Simple model from: https://gist.github.com/fchollet/0830affa1f7f19fd47b06d4cf89ed44d taken and edited
+   
     model = Sequential()
     model.add(mobilenet_base)
     model.add(GlobalAveragePooling2D())
