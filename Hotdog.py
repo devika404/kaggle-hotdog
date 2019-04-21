@@ -49,8 +49,8 @@ train_datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
 
 test_datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
 
-train_data_dir = '/global/project/rotman/Col_NN/hotdog/train'
-test_data_dir = '/global/project/rotman/Col_NN/hotdog/test'
+train_data_dir = '/devika/rotman/hotdog/train'
+test_data_dir = '/devika/rotman/hotdog/test'
 
     
 # Data parameters 
